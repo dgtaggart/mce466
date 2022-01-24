@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MCE466 - Fall 2021</title>
+<meta NAME="Author" CONTENT="David Taggart">
+<link rel="shortcut icon" type="image/png" href="mce.png">
+</head>
+<style>
+h1{font-family: Arial, Helvetica, sans-serif;font-size: 20px;}
+h2{font-family: Arial, Helvetica, sans-serif;font-size: 20px;}
+p{font-family: Arial, Helvetica, sans-serif;font-size: 18px;} 
+span{font-family: arial, helvetica, sans-serif; font-size: 12pt;} 
+table {font-family: Arial, Helvetica, sans-serif;font-size: 14px;border="0" cellpadding="5" cellspacing="0" 	}
+</style>
+<body class="content layout-2" role="document">
+<div class="container-fluid"><main>
+<div class="row">
+<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+<!-- <p align="right"><img src="URI_logo.png" alt=" " width="150" height="106" style="float: left;" /></p> -->
+<p align="right"><img src="https://dgtaggart.github.io/mce466/URI_logo.png" alt="logo" width="150" height="106" style="float: left;" /></p>
+<p align="right"><i>Fall 2021</i></p>
+<p align="right"><i></i></p>
+<h2 align="center"></h2>
+<h2 align="center">MCE 466 - Introduction to Finite Element Methods</h2>
+<p align="center">&nbsp;</p>
+<hr color="#FF9900" />
+<div align="center">
+<p align="center">&nbsp;</p>
+<div><center>
+<table border="1" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; padding: 4em; width: 90%; height: 234px;">
+<!-- <p>&nbsp;</p> -->
+<tr valign="top" style="height: 36px;">
+<td width="20%"><span><strong>&nbsp; Instructor:</strong></span></td>
+<td width="80%"><span>&nbsp; &nbsp; David G. Taggart, 289 Fascitelli, 874-5934, <a href="mailto:taggart@uri.edu">taggart@uri.edu</a> </span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Office Hours:</strong></span></td>
+<td><span>&nbsp; &nbsp; MW 12:30-1:30, Tuesday 3:30-4:30 or by appointment, In-person or via Zoom (<a href="https://uri-edu.zoom.us/j/7846696676" target="_blank" rel="noopener">Zoom Personal Room</a>)</span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Location / Time:</strong></span></td>
+<td><span>&nbsp; &nbsp; Fascitelli 045, Monday/Wednesday, 2:00-3:15 PM</span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Required Text:</strong></span></td>
+<td><span><strong>&nbsp; &nbsp; A First Course in the Finite Element Method</strong>, 5th or 6th edition, <br /></span> <span>&nbsp; &nbsp; by Daryl L. Logan, Cengage, 2012 or 2017.</span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Software:</strong></span></td>
+<td><span><strong>&nbsp; &nbsp; ABAQUS Student Edition</strong> (free download from <a href="http://academy.3ds.com/software/abaqus-student-edition/" target="_blank" rel="noopener">3DS Academy</a>, <br />
+&nbsp; &nbsp;&nbsp;<strong>Matlab</strong> <a href="https://web.uri.edu/research-computing/matlab/" target="_blank" rel="noopener">(free to URI Students)</a><br />
+<!-- &nbsp; &nbsp;&nbsp;<strong>Document scanner</strong> <a href="https://www.camscanner.com/user/download" target="_blank" rel="noopener">(Camscanner</a>, or similar app)</span></td> -->
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td>
+<span><strong>&nbsp; Grading:</strong></span></td>
+<td>
+<ul>
+<li><span>Two Exams (20% each)</span></li>
+<li><span>Computer Assignments (40%)</span></li>
+<li><span>Project (15%)</span></li>
+<li><span>Attendance (5%)</span></li>
+</ul>
+</td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; FEA Vendor&nbsp; Links:</strong></span></td>
+<td><span>&nbsp; &nbsp; <a href="http://www.3ds.com/products/simulia/overview/" target="_blank" rel="noopener">ABAQUS / SIMULIA</a>, <a href="http://www.ansys.com">ANSYS</a>, <a href="http://www.adina.com" target="_blank" rel="noopener">ADINA</a>, <a href="http://www.solidworks.com/sw/products/simulation/simulation-professional.htm" target="_blank" rel="noopener">SOLIDWORKS Simulation</a>, <a href="http://www.mscsoftware.com/product/msc-nastran" target="_blank" rel="noopener">MSC NASTRAN</a></span></td>
+</tr>
+<tr></tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Course Links: </strong></span></td>
+<td><span>&nbsp; &nbsp; <a href="/d2l/home" target="_blank" rel="noopener">URI Brightspace</a><br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://guac.egr.uri.edu/" target="_blank" rel="noopener">Remote Access to ECC Computers</a><br /><!--&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://dgtaggart.github.io/mce466/videos/video_links.htm" target="_blank" >Alternate Link to Course Videos</a></span> --></span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Course Policies: </strong></span></td>
+<td>
+<ul>
+<li><span>MCE 301 and 372 are required prerequisites for this course. Students who have not taken these courses should contact me immediately.</span></li>
+<li><span>You are expected to attend all classes, read the listed text sections and complete the assigned homework problems.</span></li>
+<li><span>Academic integrity: According to <a href="https://web.uri.edu/studentconduct/files/2015-2017-Student-Handbook.pdf">URI's student 
+handbook</a> (p. 12), "A student&rsquo;s name on any written work including assignments, lab reports, internship reports, papers, or 
+examinations, shall be regarded as assurance that the work is the result of the student&rsquo;s own thought and study." While group 
+study is generally encouraged in this course, each student is expected to submit work that they have developed on their own.</span></li>
+<li><span>Any student with a documented disability is welcomed to request accommodations. If you have any such requests, 
+please see me as soon as possible. For more information, contact <a href="http://www.uri.edu/disability_services" www="" uri="" edu="" disability_services="" a="">
+Disability Services for Students Office</a>, 330 Memorial Union, 874-2098,</span>
+ </a></li>
+</ul>
+</td>
+</tr>
+<tr valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; COVID Information:</strong></span></td>
+<td>
+<ul>
+<li><span>The University is committed to delivering its educational mission while protecting the health and safety of our community. While the university 
+has worked to create a healthy learning environment for all, it is up to all of us to ensure our campus stays that way.</span></li>
+<li><span>As members of the URI community, students are required to comply with standards of conduct and take precautions to keep themselves and others safe. 
+Visit <a href="https://web.uri.edu/coronavirus/">web.uri.edu/coronavirus/</a> for the latest information about the URI COVID-19 response.</span></li>
+<li><span>Universal indoor masking is required by all community members, on all campuses, regardless of vaccination status. If the universal mask mandate is 
+discontinued during the semester, students who have an approved exemption and are not fully vaccinated will need to continue to wear a mask 
+indoors and maintain physical distance.</span></li>
+<li><span>Students who are experiencing symptoms of illness should not come to class.  Please stay in your home/room and notify URI Health Services via phone at 401-874-2246.</span></li>
+<li><span>If you are already on campus and start to feel ill, go home/back to your room and self-isolate. Notify URI Health Services via phone immediately at 401-874-2246.</span></li>
+<li><span>If you are unable to attend class, please notify me prior to the start of class.</span></li>
+</ul>
+</tr>
+</tbody>
+</table>
+
+<!-- <p>&nbsp;</p> -->
+<h3 align="center"><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt;"><strong>Course Outline (tentative)</strong></span></h3>
+<table border="1" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; padding: 4em; width: 90%; height: 1771px;">
+<tbody>
+<tr valign="top" >
+<td align="center" width="20%"><span><strong>Week # - Dates</strong></span></td>
+<td align="center" width="80%"><span><strong>Topics &amp; Assignments</strong></span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>1 - 9/8</span></td>
+<td style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Course Introduction  (<a href="https://dgtaggart.github.io/mce466/course_intro_fall_21.pptx">Powerpoint</a>)</span></li>
+<li><span>Chapter 1 Introduction (<a href="https://dgtaggart.github.io/mce466/ch1.pptx">Powerpoint</a>)</span></li>
+<li><span>Recommended Reading: <a href="http://paulino.ce.gatech.edu/courses/cee361/handouts/wrcabm.htm" target="_blank">Warning: The Computed Answer May be Wrong</a>, by G. H. Paulino, 1999</span></li>
+<li><span> Abaqus Demo (<a href="https://dgtaggart.github.io/mce466/abaqus_demo.cae">abaqus_demo.cae</a>) </span></li>
+<li><span>Appendix A, B Math &amp; Mechanics Review (<a href="https://dgtaggart.github.io/mce466/app.pptx">Powerpoint</a> )</span></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<li><span><a href="https://dgtaggart.github.io/mce466/hw1.pdf" target="_blank">HW 1</a> - A.1, 7, 9, 10 and B.3 
+(<a href="https://dgtaggart.github.io/mce466/hw1_soln.pdf" target="_blank">solution</a> /  
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9e62dbd7-3400-4109-b7e4-ada700cf83dd" target="_blank">video</a>  /  
+<a href="https://dgtaggart.github.io/mce466/hw1_notes.pdf" target="_blank">notes) </a></span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>2 - 9/13 &amp; 15</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Chapter 2 (2.1-2.6) - Spring elements (<a href="https://dgtaggart.github.io/mce466/ch2.pptx">Powerpoint</a>)<!--  / 
+<a href="https://uri.techsmithrelay.com/Ld9Z" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch2_notes.pdf" target="_blank">notes</a>)</span>--></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<!-- <li><span>HW 2</span></li> -->
+<li><span><a href="https://dgtaggart.github.io/mce466/hw2.pdf" target="_blank">HW 2</a> - 2.13, 15 and 21 
+(<a href="https://dgtaggart.github.io/mce466/hw2_soln.pdf" target="_blank">solution</a> /  
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cdae86b0-c455-497b-aef7-ada700cf836d" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw2_notes.pdf" target="_blank">notes</a>)</span><span></span> </li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>3 - 9/20 &amp; 22</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Chapter 3 (3.1-3.8, 3.10-3.11) - Truss Elements (<a href="https://dgtaggart.github.io/mce466/ch3.pptx">Powerpoint</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=23bf5570-cd92-480b-bcae-adab00d6ac7c" target="_blank">Step 4 derivation video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch3_step_4_notes.pdf" target="_blank">notes</a>)</span></li>
+<li><span>Matlab Truss analysis (<a href="https://dgtaggart.github.io/mce466/logan_example_3_5.m" target="_blank">Example 3.5 - Matlab Script</a>)</span></li>
+
+</ul>
+<p><span>&nbsp; &nbsp; <u>Assignments</u></span><a href="https://dgtaggart.github.io/mce466/hw3.pdf"></a></p>
+<ul>
+<!-- <li><span>HW 3</span></li> -->
+<li><span><a href="https://dgtaggart.github.io/mce466/hw3.pdf" target="_blank">HW 3</a> - 3.8, 15a, 18a, 23, 27, 56 and 58a
+(<a href="https://dgtaggart.github.io/mce466/hw3_soln.pdf" target="_blank">solution</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b7a78520-a76a-4062-83f5-ada700cf83ab" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw3_notes.pdf" target="_blank">notes</a>)</span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>4 - 9/27 &amp; 29</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Abaqus Truss analysis (<a href="https://dgtaggart.github.io/mce466/truss_tutorial.pdf" target="_blank">Tutorial</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c94251e-1051-48d3-a071-adab00d7e605" target="_blank">video</a>)</span></li>
+<li><span>Chapter 4 (4.1-4.5) - Beam Elements (<a href="https://dgtaggart.github.io/mce466/ch4.pptx" target="_blank">Powerpoint</a> /
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4238de18-0338-44e2-b578-adb000c2a056" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch4_notes.pdf" target="_blank">notes</a>)</span></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<li><span><a href="https://dgtaggart.github.io/mce466/ca1_f21.docx" target="_blank">Computer Assignment #1</a> (Due 10/4, 11:30 PM)</span></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/hw4.pdf" target="_blank">HW 4</a>
+(<a href="https://dgtaggart.github.io/mce466/hw4_soln.pdf" target="_blank">solution</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ca9bd19d-2d13-45d6-abcd-adb000c312a8" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw4_notes.pdf" target="_blank">notes</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw4.m" target="_blank">hw4.m</a>)</span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+
+<tr>
+<td align="center" style="width: 20%;"><span>5 - 10/4 &amp; 6</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Abaqus Beam analysis (<a href="https://dgtaggart.github.io/mce466/beam_tutorial.pdf" target="_blank">Tutorial</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ebb05a03-0f34-4000-a19d-adb200c55283" target="_blank">video</a>)</span></li>
+<li><span>Chapter 5 (5.1-5.5)  (<a href="https://dgtaggart.github.io/mce466/ch5.pptx" target="_blank">Powerpoint</a>)</span></li>
+<li><span>Review (<a href="Exam_1_practice_problems.pdf" target="_blank">practice problems</a>)</span></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<li><span><a href="https://dgtaggart.github.io/mce466/ca2_f21.docx" target="_blank">Computer Assignment #2</a> (Due 10/18, 11:30 PM)</span></li>
+<!--  <li><span>Computer Assignment #2
+(<a href="https://uri.techsmithrelay.com/9md7" target="_blank">video on hand calculations</a> / 
+<a href="https://dgtaggart.github.io/mce466/ca/ca2_notes.pdf" target="_blank">notes</a>)</span> --></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+
+<tr>
+<td align="center" style="width: 20%;"><span>6 - 10/11 &amp; 13</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>No class on Monday (Columbus Day)</span></li>
+<li><span><strong>Exam 1 (Wednesday)</strong> 
+(<a href="exam_1_equation_sheets_f21.pdf" target="_blank">equation sheets</a>, 
+<a href="exam_1_solution.pdf" target="_blank">solution</a>)</span></li>
+</ul>
+<!-- <span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+(<a href="https://uri.techsmithrelay.com/H7GQ" target="_blank">video</a>)</span> --></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>7 - 10/18 &amp; 20</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Chapter 6 - Plane stress analysis (<a href="https://dgtaggart.github.io/mce466/ch6.pptx">Powerpoint</a>) </span><!-- / 
+<a href="https://uri.techsmithrelay.com/y4M2" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch6_notes.pdf" target="_blank">notes</a>)</span> --></li>
+<li><span>Abaqus plane stress analysis (<a href="https://dgtaggart.github.io/mce466/plane_stress_tutorial.pdf" target="_blank">Tutorial</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d0bf621d-02b8-48c9-9b2e-ad890136bf32" target="_blank">video</a>)</span></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<li><span><a href="https://dgtaggart.github.io/mce466/hw5.pdf" target="_blank">HW 5 - 6.3c, 6.11b and 6.13</a> 
+(<a href="https://dgtaggart.github.io/mce466/hw5_soln.pdf" target="_blank">solution</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2f813965-b9b1-44a2-a7d9-adc5010a0148" target="_blank">video</a> /  
+<a href="https://dgtaggart.github.io/mce466/hw5_notes.pdf" target="_blank">notes</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw5.m" target="_blank">hw5.m</a>)</span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>8 - 10/25 &amp; 27</span></td>
+
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span><font color="red"><strong>Note:</strong></font> Monday's (10/25) class meeting will be online 
+(<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=03fd7404-a3d1-4cc6-85a4-adcc017900eb">video</a>)
+<!-- (<a href="https://uri-edu.zoom.us/j/7846696676">click here to join Zoom meeting at 2 PM</a>)
+-->
+</span></li>
+<li><span>Chapter 7 - Practical considerations (<a href="https://dgtaggart.github.io/mce466/ch7.pptx">Powerpoint</a>) 
+<!-- / 
+<a href="https://uri.techsmithrelay.com/bNCi" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch7_notes.pdf" target="_blank">notes</a>)</span> --></span></li>
+<li><span>Chapter 8 - LST Elements (<a href="https://dgtaggart.github.io/mce466/ch8.pptx" target="_blank">Powerpoint</a>
+<!--  / 
+<a href="https://uri.techsmithrelay.com/PPHj" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch8_notes.pdf" target="_blank">notes</a>) --></span></li>
+
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul> 
+<li><span><a href="https://dgtaggart.github.io/mce466/ca3_f21.docx" target="_blank">Computer Assignment #3</a> (Due Wednesday 11/3, 11:30 PM / 
+<a href="https://dgtaggart.github.io/mce466/CA3_discussion_of_results.pdf" target="_blank">Discussion of Results</a>)</span></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/hw6.pdf" target="_blank">HW 6</a> 
+(<a href="https://dgtaggart.github.io/mce466/hw6_soln.pdf" target="_blank">solution</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ced3952c-f564-413a-8015-adcc00c50f77" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw6_notes.pdf" target="_blank">notes</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw6_1.m" target="_blank">hw6_1.m</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw6_2.m" target="_blank">hw6_2.m</a>)</span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>9 - 11/1 &amp; 3</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Chapter 9 Axisymmetric Elements (<a href="https://dgtaggart.github.io/mce466/ch9.pptx">Powerpoint</a>) <!-- / 
+<a href="https://uri.techsmithrelay.com/B6QK" target="_blank">video</a>)</span> --></li>
+<li><span>Abaqus axisymmetric analysis (<a href="https://dgtaggart.github.io/mce466/axisymmetric_tutorial.pdf" target="_blank">Tutorial</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0f413202-203e-4ca6-b2df-add5014483c4" target="_blank">video</a>)</span></li>
+<li><span>Chapter 10 - Isoparametric Formulation, Numerical Integration (<a href="https://dgtaggart.github.io/mce466/ch10.pptx">Powerpoint</a>) <!-- / / 
+<a href="https://uri.techsmithrelay.com/TS4n" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch10_notes.pdf" target="_blank">notes</a>)</span> --></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<!-- <li><span>Computer Assignment #4
+<a href="https://dgtaggart.github.io/mce466/ca/ca4_notes.pdf">(notes)</a> --></span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>10 - 11/8 &amp; 10</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Chapter 10 - Isoparametric Formulation, Numerical Integration  (cont.) <!-- (<a href="https://dgtaggart.github.io/mce466/ch10.pptx">Powerpoint</a> / 
+<a href="https://uri.techsmithrelay.com/TS4n" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch10_notes.pdf" target="_blank">notes</a>)--> </span></li>
+<li><span>No class on Wednesday (Veterans Day Makeup)</span></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<li><span><a href="https://dgtaggart.github.io/mce466/hw7.pdf" target="_blank">HW 7</a> 
+(<a href="https://dgtaggart.github.io/mce466/hw7_soln.pdf" target="_blank">solution</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=597316c8-cecb-4247-99f8-ade70112a0c5" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/hw7_notes.pdf" target="_blank">notes</a>)</span></li>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>11 - 11/15 &amp; 17</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Chapter 10 - Isoparametric Formulation, Numerical Integration (cont.) 
+<!-- (<a href="https://dgtaggart.github.io/mce466/ch10.pptx">Powerpoint</a> / 
+<a href="https://uri.techsmithrelay.com/TS4n" target="_blank">video</a> / 
+<a href="https://dgtaggart.github.io/mce466/ch10_notes.pdf" target="_blank">notes</a>)</span> --></li>
+<li><span>Chapter 11 - 3-D analysis (<a href="https://dgtaggart.github.io/mce466/ch11.pptx">Powerpoint</a> ) <!--/ 
+<a href= target="_blank">video</a>)</span> --></li>
+<li><span>Abaqus 3-D analysis  (<a href="https://dgtaggart.github.io/mce466/3D_analysis_tutorial.pdf" target="_blank">Tutorial</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0a9672aa-cd2e-45fb-ae2a-add5014483cb" target="_blank">video</a> / 
+<a href="plate_w_hole.SAT" target="_blank">plate_w_hole.SAT</a>)</span></li>
+<li><span>Review</li>
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+
+<li><span><a href="https://dgtaggart.github.io/mce466/ca4_f21.docx" target="_blank">Computer Assignment #4</a> (Due 12/1, 11:30 PM / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5b3de0b3-73c1-4874-8a1d-ade3013830e3" target="_blank">video</a>)</span></li> 
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>12 - 11/22 &amp; 24</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span><strong>Exam 2 (Monday)</strong> (<a href="https://dgtaggart.github.io/mce466/exam_2_equation_sheets_f21.pdf" target="_blank">equation sheets</a>,
+<a href="https://dgtaggart.github.io/mce466/exam_2_solution.pdf" target="_blank">solution</a>)</span></li>
+<li><span><a href="project_intro.pptx">Project Introduction</a> (Wednesday)</span></li>
+<li><span><font color="red"><strong>Note:</strong></font> Wednesday's (11/24) class meeting will be online 
+(<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c73c6aee-c7b1-4809-8fc6-adea0145ac3b" target="_blank">video</a>)</span> </li> 
+</ul>
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<li><span>Project Assignment</span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>13 - 11/29 &amp; 12/1</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Additional topics (<a href="https://dgtaggart.github.io/mce466/ch12_13_buckling.pptx">Powerpoint</a>) and demonstrations</span></li>
+</ul>
+<span>&nbsp; &nbsp; <u>Demonstrations</u></span>
+<ul>
+<li><span><a href="https://dgtaggart.github.io/mce466/column_buckling_tutorial.pdf" target="_blank">Column Buckling Tutorial</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fa967a98-5632-4f9a-ac19-adee0177e5b0" target="_blank">video</a></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/plate_bending_tutorial.pdf" target="_blank">Plate Bending Tutorial</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=69f7c0d7-7852-4635-98aa-adee0177e5b4" target="_blank">video</a></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/heat_transfer_examples.pdf" target="_blank">Heat Transfer Examples</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a804cc07-8db1-407b-810e-adee0177e5c0" target="_blank">video</a></li> 
+<li><span><a href="https://dgtaggart.github.io/mce466/Logan_example_16.7.pdf" target="_blank">Transient Heat Transfer</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ce7d12fe-26bd-46db-acb2-adef00d31277" target="_blank">video</a></li> 
+</ul>
+<!--
+<li><span>Heat Transfer</span></li>
+
+<li><span>Buckling</span></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/tutorials/column_buckling_tutorial.pdf" target="_blank">Column Buckling Tutorial</a> / 
+<a href="https://uri.techsmithrelay.com/orjf" target="_blank">video</a></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/tutorials/plate_bending_tutorial.pdf" target="_blank">Plate Bending Tutorial</a> / 
+<a href="https://uri.techsmithrelay.com/8JkP" target="_blank">video</a></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/tutorials/heat_transfer_examples.pdf" target="_blank">Heat Transfer Examples</a> / 
+<a href="https://uri.techsmithrelay.com/fh1W" target="_blank">video</a></li> 
+<li><span><a href="https://dgtaggart.github.io/mce466/ca/ca6_Logan_example_16.7.pdf" target="_blank">Transient Heat Transfer (Abaqus demo)</a> / 
+<a href="https://uri.techsmithrelay.com/STcb" target="_blank">video</a></li> 
+<li><span>Plate Bending</span></li>
+<a href="https://dgtaggart.github.io/mce466/demos/vibrating_beam_demo.pdf">Vibrating Beam Demo</a> 
+(<a href="https://dgtaggart.github.io/mce466/demos/vibrating_beam_demo_beam_elements.cae">beam element model</a>, 
+<a href="https://dgtaggart.github.io/mce466/demos/vibrating_beam_demo_beam_elements.inp">beam element .inp file</a>, 
+<a href="https://dgtaggart.github.io/mce466/demos/vibrating_beam_demo.cae">plane stress model</a>) </span></li>
+<li><span>Dynamic Contact
+(<a href="https://dgtaggart.github.io/mce466/demos/dynamic_contact.cae">Beam impact model</a>) </span></li>
+<li><span>Textile modeling using TexGen
+(<a href="https://dgtaggart.github.io/mce466/demos/weave_2x2.inp">TexGen .inp file</a>, 
+<a href="https://dgtaggart.github.io/mce466/demos/weave_2x2_mesh_data.inp">mesh_data file</a>, 
+<a href="https://dgtaggart.github.io/mce466/demos/weave_2x2.eld">.eld file</a>
+<a href="https://dgtaggart.github.io/mce466/demos/weave_2x2.ori">.ori file</a>) </span></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/demos/topology_optimization_example.pdf">Topology Optimization Demo</a> 
+(<a href="https://dgtaggart.github.io/mce466/demos/topology_optimization_demo.cae">model</a>) </span></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/demos/viscoelasticity_example.pdf">Viscoelasticity Demo</a> 
+(<a href="https://dgtaggart.github.io/mce466/demos/viscoelasticity_demo.cae">model</a>) </span></li>
+<li><span><a href="https://dgtaggart.github.io/mce466/demos/plasticity_example.pdf">Plasticity Demo</a> 
+(<a href="https://dgtaggart.github.io/mce466/demos/plasticity_demo_1.cae">model 1</a>, 
+<a href="https://dgtaggart.github.io/mce466/demos/plasticity_demo_2.cae">model 2</a>) </span></li>
+<li><span><a href="https://uri.campuslabs.com/eval-home/">IDEA Course Evaluation</a> 
+(available now through April 29th, 11:59 PM) </span></li> -->
+</ul>
+<!--
+<li><span><a href="https://dgtaggart.github.io/mce466/demoss/transducer.pdf">Transducer vibration </a> 
+(<a href="https://dgtaggart.github.io/mce466/demos/transducer_axisym.cae">Axisymmetric model</a>, 
+(<a href="https://dgtaggart.github.io/mce466/demos/transducer_3D.cae">3D model</a>, ) </span></li>
+</ul>-->
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+
+<li><span><a href="https://dgtaggart.github.io/mce466/ca5_f21.docx" target="_blank">Computer Assignment #5</a> (Due 12/8, 11:30 PM / 
+<a href="egg_demo.pdf" target="_blank">demo</a> / 
+<a href="https://uri.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eae898e-b8a8-4921-b6cf-adf301509357" target="_blank">video</a>)</span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>14 - 12/6 &amp; 12/8</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Continued work on computer assignments and projects</span></li>
+<li><span><a href="project_topics.pdf">Submitted Project Topics</a></span></li>
+</ul>
+</td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>15 - 12/13</span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <u>Topics</u></span>
+<ul>
+<li><span>Project Presentations (may continue into Finals Week - 12/17, 3-5 PM)</span></li>
+</ul>
+<!--
+<span>&nbsp; &nbsp; <u>Assignments</u></span>
+<ul>
+<li><span>Continued work on computer assignments</span></li>
+</ul>
+-->
+</td>
+</tr>
+<!--
+<tr>
+<td align="center" style="width: 20%;"><span>TBD <!-- <br/>11:30-2:30 <br/></span></td>
+<td align="left" style="width: 80%;"><br/><span>&nbsp; &nbsp; <strong>Exam 3</strong> (Abaqus)<br/></span><br/>
+</td>
+</tr>
+-->
+</tbody>
+</table>
+</main>
+</div>
+</body>
+</html>

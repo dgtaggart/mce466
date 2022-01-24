@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MCE466 - Fall 2021</title>
+<meta NAME="Author" CONTENT="David Taggart">
+<link rel="shortcut icon" type="image/png" href="mce.png">
+</head>
+<style>
+h1{font-family: Arial, Helvetica, sans-serif;font-size: 20px;}
+h2{font-family: Arial, Helvetica, sans-serif;font-size: 20px;}
+p{font-family: Arial, Helvetica, sans-serif;font-size: 18px;} 
+span{font-family: arial, helvetica, sans-serif; font-size: 12pt;} 
+table {font-family: Arial, Helvetica, sans-serif;font-size: 14px;border="0" cellpadding="5" cellspacing="0" 	}
+</style>
+<body class="content layout-2" role="document">
+<div class="container-fluid"><main>
+<div class="row">
+<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+<!-- <p align="right"><img src="URI_logo.png" alt=" " width="150" height="106" style="float: left;" /></p> -->
+<p align="right"><img src="https://dgtaggart.github.io/mce466/URI_logo.png" alt="logo" width="150" height="106" style="float: left;" /></p>
+<p align="right"><i>Fall 2021</i></p>
+<p align="right"><i></i></p>
+<h2 align="center"></h2>
+<h2 align="center">MCE 466 - Introduction to Finite Element Methods</h2>
+<p align="center">(available online: <a href="https://dgtaggart.github.io/mce466/syllabus.pdf"> dgtaggart.github.io/mce466/syllabus.pdf</a>)</p>
+<hr color="#FF9900" />
+<div align="center">
+<p align="center">&nbsp;</p>
+<div><center>
+<table border="1" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; padding: 4em; width: 90%; height: 234px;">
+<!-- <p>&nbsp;</p> -->
+<tr valign="top" style="height: 36px;">
+<td width="20%"><span><strong>&nbsp; Instructor:</strong></span></td>
+<td width="80%"><span>&nbsp; &nbsp; David G. Taggart, 289 Fascitelli, 874-5934, <a href="mailto:taggart@uri.edu">taggart@uri.edu</a> </span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Office Hours:</strong></span></td>
+<td><span>&nbsp; &nbsp; TBD / By appointment, In-person or via Zoom (<a href="https://uri-edu.zoom.us/j/7846696676" target="_blank" rel="noopener">Zoom Personal Room</a>)</span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Location / Time:</strong></span></td>
+<td><span>&nbsp; &nbsp; Fascitelli 045, Monday/Wednesday, 2:00-3:15 PM</span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Required Text:</strong></span></td>
+<td><span><strong>&nbsp; &nbsp; A First Course in the Finite Element Method</strong>, 5th or 6th edition, <br /></span> <span>&nbsp; &nbsp; by Daryl L. Logan, Cengage, 2012 or 2017.</span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Software:</strong></span></td>
+<td><span><strong>&nbsp; &nbsp; ABAQUS Student Edition</strong> (free download from <a href="http://academy.3ds.com/software/abaqus-student-edition/" target="_blank" rel="noopener">3DS Academy</a>, <br />
+&nbsp; &nbsp;&nbsp;<strong>Matlab</strong> <a href="https://web.uri.edu/research-computing/matlab/" target="_blank" rel="noopener">(free to URI Students)</a><br />
+<!-- &nbsp; &nbsp;&nbsp;<strong>Document scanner</strong> <a href="https://www.camscanner.com/user/download" target="_blank" rel="noopener">(Camscanner</a>, or similar app)</span></td> -->
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td>
+<span><strong>&nbsp; Grading:</strong></span></td>
+<td>
+<ul>
+<li><span>Two Exams (20% each)</span></li>
+<li><span>Computer Assignments (40%)</span></li>
+<li><span>Project (15%)</span></li>
+<li><span>Attendance (5%)</span></li>
+</ul>
+</td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; FEA Vendor&nbsp; Links:</strong></span></td>
+<td><span>&nbsp; &nbsp; <a href="http://www.3ds.com/products/simulia/overview/" target="_blank" rel="noopener">ABAQUS / SIMULIA</a>, <a href="http://www.ansys.com">ANSYS</a>, <a href="http://www.adina.com" target="_blank" rel="noopener">ADINA</a>, <a href="http://www.solidworks.com/sw/products/simulation/simulation-professional.htm" target="_blank" rel="noopener">SOLIDWORKS Simulation</a>, <a href="http://www.mscsoftware.com/product/msc-nastran" target="_blank" rel="noopener">MSC NASTRAN</a></span></td>
+</tr>
+<tr></tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Course Links: </strong></span></td>
+<td><span>&nbsp; &nbsp; <a href="/d2l/home" target="_blank" rel="noopener">URI Brightspace</a><br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://guac.egr.uri.edu/" target="_blank" rel="noopener">Remote Access to ECC Computers</a><br /><!--&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://personal.egr.uri.edu/taggart/courses/mce466/videos/video_links.htm" target="_blank" >Alternate Link to Course Videos</a></span> --></span></td>
+</tr>
+<tr  valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; Course Policies: </strong></span></td>
+<td>
+<ul>
+<li><span>MCE 301 and 372 are required prerequisites for this course. Students who have not taken these courses should contact me immediately.</span></li>
+<li><span>You are expected to attend all classes, read the listed text sections and complete the assigned homework problems.</span></li>
+<li><span>Academic integrity: According to <a href="https://web.uri.edu/studentconduct/files/2015-2017-Student-Handbook.pdf">URI's student 
+handbook</a> (p. 12), "A student&rsquo;s name on any written work including assignments, lab reports, internship reports, papers, or 
+examinations, shall be regarded as assurance that the work is the result of the student&rsquo;s own thought and study." While group 
+study is generally encouraged in this course, each student is expected to submit work that they have developed on their own.</span></li>
+<li><span>Any student with a documented disability is welcomed to request accommodations. If you have any such requests, 
+please see me as soon as possible. For more information, contact <a href="http://www.uri.edu/disability_services" www="" uri="" edu="" disability_services="" a="">
+Disability Services for Students Office</a>, 330 Memorial Union, 874-2098,</span>
+ </a></li>
+</ul>
+</td>
+</tr>
+<tr valign="top" style="height: 36px;">
+<td><span><strong>&nbsp; COVID Information:</strong></span></td>
+<td>
+<ul>
+<li><span>The University is committed to delivering its educational mission while protecting the health and safety of our community. While the university 
+has worked to create a healthy learning environment for all, it is up to all of us to ensure our campus stays that way.</span></li>
+<li><span>As members of the URI community, students are required to comply with standards of conduct and take precautions to keep themselves and others safe. 
+Visit <a href="https://web.uri.edu/coronavirus/">web.uri.edu/coronavirus/</a> for the latest information about the URI COVID-19 response.</span></li>
+<li><span>Universal indoor masking is required by all community members, on all campuses, regardless of vaccination status. If the universal mask mandate is 
+discontinued during the semester, students who have an approved exemption and are not fully vaccinated will need to continue to wear a mask 
+indoors and maintain physical distance.</span></li>
+<li><span>Students who are experiencing symptoms of illness should not come to class.  Please stay in your home/room and notify URI Health Services via phone at 401-874-2246.</span></li>
+<li><span>If you are already on campus and start to feel ill, go home/back to your room and self-isolate. Notify URI Health Services via phone immediately at 401-874-2246.</span></li>
+<li><span>If you are unable to attend class, please notify me prior to the start of class.</span></li>
+</ul>
+</tr>
+</tbody>
+</table>
+
+<!-- <p>&nbsp;</p> -->
+<h3 align="center"><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt;"><strong>Course Outline (tentative)</strong></span></h3>
+<table border="1" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; padding: 4em; width: 70%;">
+<tbody>
+<tr valign="top" >
+<td align="center" width="20%"><span><strong>Week # - Dates</strong></span></td>
+<td align="center" width="80%"><span><strong>Topics &amp; Assignments</strong></span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>1 - 9/8</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Introduction</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>2 - 9/13 &amp; 15</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Spring Elements</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>3 - 9/20 &amp; 22</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Truss Elements</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>4 - 9/27 &amp; 29</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Beam Elements </span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+
+<tr>
+<td align="center" style="width: 20%;"><span>5 - 10/4 &amp; 6</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Frame Elements</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+
+<tr>
+<td align="center" style="width: 20%;"><span>6 - 10/11 &amp; 13</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; <strong>Exam 1</strong></span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>7 - 10/18 &amp; 20</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Plane Stress Elements</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>8 - 10/25 &amp; 27</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Practical Considerations</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>9 - 11/1 &amp; 3</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Axisymmetric Elements</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>10 - 11/8 &amp; 10</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Isoparametric Formulation, Numerical Integration</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>11 - 11/15 &amp; 17</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Isoparametric Formulation, Numerical Integration (cont.)</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>12 - 11/22 &amp; 24</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; <strong>Exam 2</strong> / Project Introduction</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>13 - 11/29 &amp; 12/1</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; 3-D Elements</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>14 - 12/6 &amp; 12/8</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Additional Topics</span></td>
+</tr>
+<!-- **************************************************************************************************************** -->
+<tr>
+<td align="center" style="width: 20%;"><span>15 - 12/13</span></td>
+<td style="width: 80%;"><span>&nbsp; &nbsp; Project Presentations</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

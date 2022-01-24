@@ -1,0 +1,108 @@
+# -*- coding: mbcs -*-
+from abaqus import *
+upgradeMdb('C:/Users/David/Downloads/abaqus_demo (1)-2019.cae', 
+    'C:/Users/David/Downloads/abaqus_demo (1).cae')
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].materials['Material-1'].elastic.setValues(table=((
+    210000.0, 0.3), ))
+mdb.jobs['MCE466_demo'].submit(consistencyChecking=OFF)
+mdb.jobs['MCE466_demo']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-S2AQPI7', 'handle': 0, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR TWO-DIMENSIONAL MODELS, IF A NON-UNITY THICKNESS IS SPECIFIED FOR TWO-DIMENSIONAL SOLID ELEMENTS AND THESE ELEMENTS ARE INVOLVED IN AN INTERACTION SUCH AS CONTACT, THE SAME THICKNESS SHOULD BE SPECIFIED FOR THE OUT-OF-PLANE THICKNESS OF THE CORRESPONDING SURFACE UNDER *SURFACE INTERACTION.', 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\David\\Downloads\\MCE466_demo.odb', 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-S2AQPI7', 'handle': 10680, 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'MCE466_demo', 'memory': 114.0})
+mdb.jobs['MCE466_demo']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 7920.0, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(MINIMUM_MEMORY, {'minimum_memory': 35.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'MCE466_demo', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['MCE466_demo']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(JOB_COMPLETED, {
+    'time': 'Mon Sep 13 11:40:27 2021', 'jobName': 'MCE466_demo'})
+mdb.models['Model-1'].materials['Material-1'].elastic.setValues(table=((
+    100000.0, 0.3), ))
+mdb.jobs['MCE466_demo'].submit(consistencyChecking=OFF)
+mdb.jobs['MCE466_demo']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'DESKTOP-S2AQPI7', 'handle': 0, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR TWO-DIMENSIONAL MODELS, IF A NON-UNITY THICKNESS IS SPECIFIED FOR TWO-DIMENSIONAL SOLID ELEMENTS AND THESE ELEMENTS ARE INVOLVED IN AN INTERACTION SUCH AS CONTACT, THE SAME THICKNESS SHOULD BE SPECIFIED FOR THE OUT-OF-PLANE THICKNESS OF THE CORRESPONDING SURFACE UNDER *SURFACE INTERACTION.', 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\David\\Downloads\\MCE466_demo.odb', 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'DESKTOP-S2AQPI7', 'handle': 12060, 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'MCE466_demo', 'memory': 114.0})
+mdb.jobs['MCE466_demo']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 7920.0, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(MINIMUM_MEMORY, {'minimum_memory': 35.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'MCE466_demo', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['MCE466_demo']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'MCE466_demo'})
+mdb.jobs['MCE466_demo']._Message(JOB_COMPLETED, {
+    'time': 'Mon Sep 13 11:53:17 2021', 'jobName': 'MCE466_demo'})
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.saveAs(pathName='C:/Users/David/Downloads/abaqus_demo.cae')
+# Save by David on 2021_09_13-12.47.59; build 2020 2019_09_13-13.49.31 163176
