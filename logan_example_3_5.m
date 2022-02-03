@@ -130,11 +130,23 @@ for iel=1:nel             % loop for the total number of elements
     x2=gcoord(nd(2),1);   % x coordinate of 1st node
     y2=gcoord(nd(2),2);   % y coordinate of 2nd node
     leng=sqrt((x2-x1)^2+(y2-y1)^2);   % element length
+    %
     if (x2-x1)==0
-        beta=2*atan(1);   % angle between local and global axes
+        if y2>y1
+            beta=pi/2;
+        else
+            beta=-pi/2;
+        end
     else
-        beta=atan((y2-y1)/(x2-x1));
+        beta=asin((y2-y1)/leng);
     end
+    %
+    %     if (x2-x1)==0
+    %         beta=2*atan(1);   % angle between local and global axes
+    %     else
+    %         beta=atan((y2-y1)/(x2-x1));
+    %     end
+    %
     el=elprop(iel,1);                  % extract elastic modulus
     area=elprop(iel,2);                % extract cross-sectional area
     index=feeldof(nd,nnel,ndof);       % extract system dofs for the element
@@ -155,11 +167,23 @@ for iel=1:nel         % loop for the total number of elements
     x1=gcoord(nd(1),1); y1=gcoord(nd(1),2);  % coordinate of 1st node
     x2=gcoord(nd(2),1); y2=gcoord(nd(2),2);  % coordinate of 2nd node
     leng=sqrt((x2-x1)^2+(y2-y1)^2);  % element length
+    %
     if (x2-x1)==0
-        beta=2*atan(1);       % angle between local and global axes
+        if y2>y1
+            beta=pi/2;
+        else
+            beta=-pi/2;
+        end
     else
-        beta=atan((y2-y1)/(x2-x1));
+        beta=asin((y2-y1)/leng);
     end
+    %
+    %     if (x2-x1)==0
+    %         beta=2*atan(1);   % angle between local and global axes
+    %     else
+    %         beta=atan((y2-y1)/(x2-x1));
+    %     end
+    %
     el=elprop(iel,1);               % extract elastic modulus
     area=elprop(iel,2);             % extract cross-sectional area
     index=feeldof(nd,nnel,ndof);    % extract system dofs for the element
